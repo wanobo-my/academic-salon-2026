@@ -105,18 +105,26 @@ body::after  { right: 0; border-left:  1px solid var(--cream-border); }
   margin: 0 auto 1.5rem;
 }
 .inv-label {
-  font-family: 'EB Garamond', serif;
-  font-size: 11px; letter-spacing: 0.28em;
-  color: var(--gold); text-transform: uppercase;
-  margin-bottom: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  /* INVITATIONを大きく、優雅な斜体に */
+  font-size: clamp(32px, 8vw, 48px);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--gold-light);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0.9;
 }
 .inv-title {
-  font-family: 'Cormorant Garamond', serif;
-  /* サイズを大きく変更（40px〜64pxで可変） */
-  font-size: clamp(40px, 10vw, 64px);
-  font-weight: 500; color: #f0ece0;
-  letter-spacing: 0.08em; line-height: 1.2;
-  margin-bottom: 0.6rem;
+  font-family: 'Noto Serif JP', serif;
+  /* 日本語タイトルはほどよいサイズ感に調整 */
+  font-size: clamp(24px, 6vw, 32px);
+  font-weight: 500;
+  color: #f0ece0;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
 }
 .inv-title-en {
   font-family: 'Cormorant Garamond', serif;
@@ -157,24 +165,54 @@ body::after  { right: 0; border-left:  1px solid var(--cream-border); }
 
 .btn-enter {
   background: none;
-  border: 1px solid var(--gold);
+  border: 1px solid rgba(212, 184, 112, 0.4); /* 薄いゴールドの枠 */
   color: var(--gold-light);
-  padding: 13px 42px;
+  padding: 14px 60px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 17px; letter-spacing: 0.14em;
-  cursor: pointer; position: relative; overflow: hidden;
-  transition: color 0.3s;
+  font-size: 19px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 1.5rem;
+}
+
+/* ボタンの四隅に小さな装飾を追加 */
+.btn-enter::before, .btn-enter::after {
+  content: '';
+  position: absolute;
+  width: 8px; height: 8px;
+  border-color: var(--gold);
+  border-style: solid;
+  transition: all 0.4s;
+  opacity: 0.6;
 }
 .btn-enter::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: var(--gold);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.35s ease;
+  top: -1px; left: -1px; border-width: 1px 0 0 1px;
 }
-.btn-enter:hover::before { transform: scaleX(1); }
-.btn-enter:hover { color: var(--green-dark); }
-.btn-enter span { position: relative; z-index: 1; }
+.btn-enter::after {
+  bottom: -1px; right: -1px; border-width: 0 1px 1px 0;
+}
+
+.btn-enter span {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-enter:hover {
+  color: var(--green-dark);
+  letter-spacing: 0.35em; /* 文字間が広がる演出 */
+  border-color: var(--gold);
+}
+
+/* ホバー時に背景が満ちる演出 */
+.btn-enter:hover::before, .btn-enter:hover::after {
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  opacity: 1;
+  background: var(--gold);
+}
 
 .inv-bottom-rule {
   width: 1px; height: 48px;
@@ -508,12 +546,6 @@ footer {
         <div class="info-val">
           参加費無料
           <div class="info-sub">事前登録不要。当日お気軽にお越しください。</div>
-        </div>
-      </div>
-      <div class="info-row">
-        <div class="info-key">About</div>
-        <div class="info-val">
-          様々な分野の若手研究者が集い、研究内容や知見を共有するカジュアルな学術交流会。分野横断的な議論と交流をお楽しみください。。
         </div>
       </div>
     </section>
