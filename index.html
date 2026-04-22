@@ -124,10 +124,10 @@ body::after  { right: 0; border-left:  1px solid var(--cream-border); }
 .inv-title {
   font-family: 'Noto Serif JP', serif;
   /* サイズを少し抑え、字間を広くして品格を出します */
-  font-size: clamp(20px, 5vw, 26px); 
+  font-size: clamp(22px, 5vw, 26px); 
   font-weight: 500;
   color: #f0ece0;
-  letter-spacing: 0.35em; /* 字間を広めに設定 */
+  letter-spacing: 0.25em; /* 字間を広めに設定 */
   line-height: 1.4;
   margin-bottom: 0.8rem;
   /* 最後の文字の右側の余白を打ち消して中央寄せを維持 */
@@ -380,7 +380,7 @@ body::after  { right: 0; border-left:  1px solid var(--cream-border); }
   height: 100%;
   border: 0;
   /* ゴールド・ブラウン系の落ち着いたトーン（白黒化＋セピア＋コントラスト調整） */
-  filter: grayscale(100%) sepia(70%) contrast(85%) brightness(95%);
+  filter: grayscale(100%) sepia(50%) contrast(85%) brightness(95%);
 }
 .map-area-icon { font-size: 28px; }
 
@@ -594,7 +594,7 @@ footer {
       </div>
       <div class="prog-legend">
         <span><span class="ldot" style="background:var(--green-dark)"></span>Event</span>
-        <span><span class="ldot" style="background:var(--gold)"></span>Special Contents</span>
+        <span><span class="ldot" style="background:var(--gold)"></span>Special Talk</span>
         <span><span class="ldot" style="background:var(--green-mid)"></span>Presentation</span>
         <span><span class="ldot" style="background:var(--cream-dark)"></span>Tea Break</span>
       </div>
@@ -615,7 +615,7 @@ footer {
     </div>
   </div>
   
-  <div class="footer-sub" style="margin-top: 2rem;">学術交流サロン企画チーム</div>
+  <div class="footer-sub" style="margin-top: 2rem;">&copy; 2026 学術交流サロン企画チーム</div>
 </footer>
   </div>
 
@@ -625,26 +625,26 @@ footer {
 const programData = [
   { time:'10:30', type:'none',    title:'開場' }, // typeをnoneに
   { time:'11:00', type:'event',   title:'オープニング' },
-  { time:'11:10', type:'keynote', title:'オープニングトーク：「組合せゲーム大会」', speaker:'小松優治（名古屋大学情報学研究科 D3）' },
+  { time:'11:10', type:'keynote', title:'組合せゲーム大会', speaker:'小松優治（名古屋大学情報学研究科 D3）' },
   { time:'11:50', type:'break',   title:'休憩' },
-  { time:'12:00', type:'talk',    title:'講演１：「言語の(非)恣意性をめぐって〜音と意味の対応は世界の見え方・聞こえ方を変えるのか〜」', speaker:'飯田雛乃（名古屋大学人文学研究科 D3）' },
+  { time:'12:00', type:'talk',    title:'言語の(非)恣意性をめぐって〜音と意味の対応は世界の見え方・聞こえ方を変えるのか〜', speaker:'飯田雛乃（名古屋大学人文学研究科 D3）' },
   { time:'12:30', type:'break',   title:'休憩（ランチ）' },
-  { time:'13:30', type:'talk',    title:'講演２：TBA', speaker:'草間美咲（名古屋大学生命農学研究科 M1）' },
+  { time:'13:30', type:'talk',    title:'TBA', speaker:'草間美咲（名古屋大学生命農学研究科 M1）' },
   { time:'14:00', type:'break',   title:'休憩' },
-  { time:'14:10', type:'talk',    title:'講演３：「観光DXにむけたデータを活用したまちづくり〜観光地における実践研究〜」', speaker:'堀涼（椙山女学園大学人間学・ジェンダー研究所 特別研究員）' },
+  { time:'14:10', type:'talk',    title:'観光DXにむけたデータを活用したまちづくり〜観光地における実践研究〜', speaker:'堀涼（椙山女学園大学人間学・ジェンダー研究所 特別研究員）' },
   { time:'14:40', type:'break',   title:'休憩' },
-  { time:'15:00', type:'talk',    title:'講演４：「宇宙論とは何だろうか」', speaker:'由良海翔（名古屋大学理学研究科 D1）' },
+  { time:'15:00', type:'talk',    title:'宇宙論とは何だろうか', speaker:'由良海翔（名古屋大学理学研究科 D1）' },
   { time:'15:40', type:'break',   title:'休憩' },
-  { time:'15:50', type:'talk',    title:'講演５：「人は世界をどう見て、どう生きているんだろう？──フランス文学から考えてみる」', speaker:'渡邊菜月（名古屋大学人文学研究科 D2）' },
+  { time:'15:50', type:'talk',    title:'人は世界をどう見て、どう生きているんだろう？──フランス文学から考えてみる', speaker:'渡邊菜月（名古屋大学人文学研究科 D2）' },
   { time:'16:20', type:'break',   title:'休憩' },
-  { time:'16:40', type:'keynote', title:'クロージングトーク：「学問の行き着く先について」', speaker:'中島光一朗（筑波大学計算科学研究センター 博士研究員）' },
+  { time:'16:40', type:'keynote', title:'学問の行き着く先について', speaker:'中島光一朗（筑波大学計算科学研究センター 博士研究員）' },
   { time:'17:10', type:'event',   title:'クロージング' },
   { time:'17:20', type:'break',   title:'自由交流' }, // typeをbreakに変更
   { time:'18:00', type:'none',    title:'終了' },    // typeをnoneに
 ];
 
 // breakの表示名を「交流」に変更
-const typeLabel = { talk:'Presentation', keynote:'Special Contents', break:'Tea Break', event:'Event' }; 
+const typeLabel = { talk:'Presentation', keynote:'Special Talk', break:'Tea Break', event:'Event' }; 
 const list = document.getElementById('progList');
 
 programData.forEach(d => {
