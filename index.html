@@ -400,7 +400,7 @@ body::after  { right: 0; border-left:  1px solid var(--cream-border); }
   width: 100%;
   height: 100%;
   border: 0;
-  /* ゴールド・ブラウン系の落ち着いたトーン（白黒化＋セピア＋コントラスト調整） */
+  /* 白黒化＋セピア＋コントラスト調整 */
   filter: grayscale(100%) sepia(50%) contrast(85%) brightness(95%);
 }
 .map-area-icon { font-size: 28px; }
@@ -437,7 +437,7 @@ body::after  { right: 0; border-left:  1px solid var(--cream-border); }
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 3rem 1.5rem 4rem; /* 下の余白を少し増やす */
+  padding: 3rem 1.5rem 4rem; 
   background: var(--green-dark);
 }
 .footer-team {
@@ -500,7 +500,7 @@ footer {
 <div class="side-ornament left">
   <div class="orn-line"></div>
   <div class="orn-dot"></div>
-  <div class="orn-text">Academic Salon 2026</div>
+  <div class="orn-text">Academic Salon #01</div>
   <div class="orn-dot"></div>
   <div class="orn-line"></div>
 </div>
@@ -658,7 +658,7 @@ footer {
       森田 湧登（(株)FabCafe Nagoya ディレクター）<br>
       中島 光一朗（筑波大学計算科学研究センター 博士研究員）<br>
       小松 優治（名古屋大学情報学研究科 D3）<br>
-      由良海翔（名古屋大学理学研究科 D1）
+      由良 海翔（名古屋大学理学研究科 D1）
     </div>
   </div>
   
@@ -670,7 +670,7 @@ footer {
 
 <script>
 const programData = [
-  { time:'10:30', type:'none',    title:'開場' }, // typeをnoneに
+  { time:'10:30', type:'none',    title:'開場' }, 
   { time:'11:00', type:'event',   title:'オープニング' },
   { time:'11:10', type:'keynote', title:'組合せゲーム大会', speaker:'小松優治（名古屋大学情報学研究科 D3）' },
   { time:'11:50', type:'break',   title:'休憩' },
@@ -686,11 +686,10 @@ const programData = [
   { time:'16:20', type:'break',   title:'休憩' },
   { time:'16:40', type:'keynote', title:'学問の行き着く先について', speaker:'中島光一朗（筑波大学計算科学研究センター 博士研究員）' },
   { time:'17:10', type:'event',   title:'クロージング' },
-  { time:'17:20', type:'break',   title:'自由交流' }, // typeをbreakに変更
-  { time:'18:00', type:'none',    title:'終了' },    // typeをnoneに
+  { time:'17:20', type:'break',   title:'自由交流' },
+  { time:'18:00', type:'none',    title:'終了' },  
 ];
 
-// breakの表示名を「交流」に変更
 const typeLabel = { talk:'Presentation', keynote:'Special Talk', break:'Tea Break', event:'Event' }; 
 const list = document.getElementById('progList');
 
