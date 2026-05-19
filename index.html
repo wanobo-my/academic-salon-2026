@@ -728,8 +728,15 @@ function enterSite() {
 
 // ページ読み込み時のチェック処理
 window.addEventListener('DOMContentLoaded', () => {
-  // すでに入場済みの場合
-  if (sessionStorage.getItem('hasEntered') === 'true') {
+  // URLのパラメーター（?skip=true）をチェック
+  const urlParams = new URLSearchParams(window.location.search);
+  const hasSkipParam = urlParams.get('skip') === 'true';
+  
+  // URLのハッシュ（#information や #program など）がついているかチェック
+  const hasHash = window.location.hash;
+
+  // ①すでにボタンを押したことがある、②URLに ?skip=true がある、③直接ハッシュが指定されている のいずれか
+  if (sessionStorage.getItem('hasEntered') === 'true' || hasSkipParam || hasHash) {
     const inv = document.getElementById('invitation');
     const main = document.getElementById('main');
     
@@ -737,8 +744,6 @@ window.addEventListener('DOMContentLoaded', () => {
     inv.style.display = 'none';
     main.style.display = 'block';
     main.classList.add('visible', 'revealed');
-    
-    // スムーズなスクロール位置の復元などのために微調整が必要な場合はここに追記
   }
 });
 
